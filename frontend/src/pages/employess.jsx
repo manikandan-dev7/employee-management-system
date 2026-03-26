@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { getEmployees, deleteEmployee } from "../services/api";
 import EmployeeTable from "../components/employeTable";
+import ConfirmModal from "../components/confirmModal";
 import { useNavigate } from "react-router-dom";
 
 const Employess = () => {
   const [employees, setEmployees] = useState([]);
+  const [deleteId, setDeleteId] = useState(null);
   const navigate = useNavigate();
 
   const fetchData = async () => {
     const res = await getEmployees();
+    console.log(res.data, "response data");
+
     setEmployees(res.data);
   };
 
@@ -16,8 +20,9 @@ const Employess = () => {
     fetchData();
   }, []);
 
-  const handleDelete = async (id) => {
-    await deleteEmployee(id);
+  const confirmDelete = async () => {
+    await deleteEmployee(deleteId);
+    setDeleteId(null);
     fetchData();
   };
 
@@ -30,16 +35,23 @@ const Employess = () => {
           onClick={() => navigate("/add")}
           className="px-4 py-2 text-white bg-blue-500 rounded"
         >
-          Add New Employee
+          Add Employee
         </button>
       </div>
 
       <EmployeeTable
         employees={employees}
-        onDelete={handleDelete}
+        onDelete={(id) => setDeleteId(id)}
         onView={(id) => navigate(`/view/${id}`)}
         onEdit={(id) => navigate(`/edit/${id}`)}
       />
+
+      {deleteId && (
+        <ConfirmModal
+          onConfirm={confirmDelete}
+          onCancel={() => setDeleteId(null)}
+        />
+      )}
     </div>
   );
 };

@@ -3,19 +3,16 @@ import Employess from "./pages/employess";
 import AddEmployee from "./pages/addEmployee";
 import EditEmployee from "./pages/editEmployee";
 import ViewEmployee from "./pages/viewEmployee";
-import SideBar from "./components/sideBar";
+import SideBar from "./components/sideBAr";
 import NavBar from "./components/navBar";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="flex h-screen bg-gray-100">
-        
-        {/* Sidebar */}
         <SideBar />
 
-        {/* Main */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex flex-col flex-1">
           <NavBar />
 
           <div className="p-6 overflow-y-auto">
@@ -27,7 +24,6 @@ function App() {
             </Routes>
           </div>
         </div>
-
       </div>
     </BrowserRouter>
   );

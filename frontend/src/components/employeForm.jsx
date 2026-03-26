@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const EmployeeForm = ({ onSubmit, initialData }) => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     employeeId: "",
@@ -9,58 +12,26 @@ const EmployeeForm = ({ onSubmit, initialData }) => {
     project: "",
     type: "",
     status: "",
-    image: null,
+    // image: "",
   });
 
   useEffect(() => {
-    if (initialData) {
-      setForm(initialData);
-    }
+    if (initialData) setForm(initialData);
   }, [initialData]);
 
   const handleChange = (e) => {
-    if (e.target.type === "file") {
-      setForm({ ...form, image: e.target.files[0] });
-    } else {
-      setForm({ ...form, [e.target.name]: e.target.value });
-    }
+    const value = e.target.value;
+    setForm({ ...form, [e.target.name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("FORM SUBMIT", form);
     onSubmit(form);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-4xl p-6 bg-white rounded shadow"
-    >
-      {/* Image Upload */}
-      <div className="mb-4">
-        <label className="block mb-2 font-medium">Upload Image</label>
-
-        {form.image && (
-          <img
-            src={
-              typeof form.image === "string"
-                ? form.image
-                : URL.createObjectURL(form.image)
-            }
-            alt="preview"
-            className="w-20 h-20 mb-3 rounded"
-          />
-        )}
-
-        <input
-          type="file"
-          name="image"
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-      </div>
-
-      {/* Form Fields */}
+    <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow">
       <div className="grid grid-cols-2 gap-4">
         <input
           name="name"
@@ -126,9 +97,12 @@ const EmployeeForm = ({ onSubmit, initialData }) => {
         </select>
       </div>
 
-      {/* Buttons */}
       <div className="flex justify-end gap-3 mt-6">
-        <button type="button" className="px-4 py-2 border rounded">
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="px-4 py-2 border rounded"
+        >
           Cancel
         </button>
 

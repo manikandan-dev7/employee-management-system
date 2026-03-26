@@ -8,30 +8,22 @@ const ViewEmployee = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchEmployee = async () => {
-      try {
-        const res = await getEmployee(id);
-        setData(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchEmployee();
+    getEmployee(id).then((res) => setData(res.data));
   }, [id]);
 
   if (!data) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h2>Employee Details</h2>
+    <div className="p-6 bg-white rounded shadow">
+      <h2 className="mb-4 text-lg font-bold">Employee Details</h2>
 
-      <p><strong>Name:</strong> {data.name}</p>
-      <p><strong>Employee ID:</strong> {data.employeeId}</p>
-      <p><strong>Department:</strong> {data.department}</p>
-      <p><strong>Designation:</strong> {data.designation}</p>
+      <p>Name: {data.name}</p>
+      <p>ID: {data.employeeId}</p>
+      <p>Department: {data.department}</p>
 
-      <button onClick={() => navigate("/")}>Back</button>
+      <button onClick={() => navigate("/")} className="px-4 py-2 mt-4 text-white bg-blue-500 rounded">
+        Back
+      </button>
     </div>
   );
 };

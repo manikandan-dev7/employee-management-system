@@ -9,37 +9,15 @@ const EditEmployee = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchEmployee = async () => {
-      try {
-        const res = await getEmployee(id);
-        setData(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchEmployee();
+    getEmployee(id).then((res) => setData(res.data));
   }, [id]);
 
   const handleSubmit = async (formData) => {
-    try {
-      await updateEmployee(id, formData);
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    await updateEmployee(id, formData);
+    navigate("/");
   };
 
-  return (
-    <div>
-      <h2>Edit Employee</h2>
-      {data ? (
-        <EmployeeForm onSubmit={handleSubmit} initialData={data} />
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
+  return data ? <EmployeeForm onSubmit={handleSubmit} initialData={data} /> : <p>Loading...</p>;
 };
 
 export default EditEmployee;
