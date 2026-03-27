@@ -1,4 +1,4 @@
-import EmployeeForm from "../components/employeForm";
+import EmployeeForm from "../components/EmployeeForm";
 // import { addEmployee } from "../services/api";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

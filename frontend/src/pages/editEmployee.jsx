@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getEmployee, updateEmployee } from "../services/api";
-import EmployeeForm from "../components/employeForm";
+import EmployeeForm from "../components/EmployeeForm";
 
 const EditEmployee = () => {
   const { id } = useParams();

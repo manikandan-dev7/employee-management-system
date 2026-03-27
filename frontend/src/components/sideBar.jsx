@@ -5,7 +5,7 @@ import {
   FaFacebookMessenger,
 } from "react-icons/fa";
 
-const sideBar = () => {
+const SideBar = () => {
   return (
     <div className="h-screen bg-white border-r w-60">
       <h2 className="p-2 mb-6 text-4xl font-bold text-blue-600 border-b border-gray-200">
@@ -32,4 +32,4 @@ const sideBar = () => {
   );
 };
 
-export default sideBar;
+export default SideBar;

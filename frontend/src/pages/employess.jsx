@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getEmployees, deleteEmployee } from "../services/api";
-import EmployeeTable from "../components/employeTable";
+import EmployeeTable from "../components/EmployeeTable";
 import ConfirmModal from "../components/confirmModal";
 import { useNavigate } from "react-router-dom";
 
