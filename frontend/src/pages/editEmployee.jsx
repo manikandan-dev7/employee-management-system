@@ -17,7 +17,14 @@ const EditEmployee = () => {
     navigate("/");
   };
 
-  return data ? <EmployeeForm onSubmit={handleSubmit} initialData={data} /> : <p>Loading...</p>;
+  return data ? (
+    <div>
+      <h2 className="text-xl font-semibold">Edit Employee</h2>
+      <EmployeeForm onSubmit={handleSubmit} initialData={data} />
+    </div>
+  ) : (
+    <p>Loading...</p>
+  );
 };
 
 export default EditEmployee;

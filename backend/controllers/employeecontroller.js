@@ -28,8 +28,8 @@ export const addEmployee = (req, res) => {
 
   const sql = `
     INSERT INTO employees 
-    (name, employeeId, department, designation, project, type, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    (name, employeeId, department, designation, project, type, status, image)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
   db.query(
@@ -42,6 +42,7 @@ export const addEmployee = (req, res) => {
       data.project,
       data.type,
       data.status,
+      data.image,
     ],
     (err, result) => {
       if (err) return res.status(500).json(err);
@@ -57,7 +58,7 @@ export const updateEmployee = (req, res) => {
 
   const sql = `
     UPDATE employees 
-    SET name=?, employeeId=?, department=?, designation=?, project=?, type=?, status=? 
+    SET name=?, employeeId=?, department=?, designation=?, project=?, type=?, status=?, 
     WHERE employeeId=?
   `;
 
@@ -71,7 +72,7 @@ export const updateEmployee = (req, res) => {
       data.project,
       data.type,
       data.status,
-      id,
+      // data.image,
     ],
     (err, result) => {
       if (err) return res.status(500).json(err);

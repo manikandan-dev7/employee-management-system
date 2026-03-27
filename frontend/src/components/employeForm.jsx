@@ -12,7 +12,7 @@ const EmployeeForm = ({ onSubmit, initialData }) => {
     project: "",
     type: "",
     status: "",
-    // image: "",
+    image: "",
   });
 
   useEffect(() => {
@@ -33,6 +33,17 @@ const EmployeeForm = ({ onSubmit, initialData }) => {
   return (
     <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow">
       <div className="grid grid-cols-2 gap-4">
+        {/* <input
+          name="image"
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            const file = e.target.files?.[0] || "";
+            setForm({ ...form, image: file });
+          }}
+          className="col-span-2 p-2 border rounded"
+        /> */}
+
         <input
           name="name"
           placeholder="Name"

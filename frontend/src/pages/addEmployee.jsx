@@ -17,7 +17,12 @@ const AddEmployee = () => {
     }
   };
 
-  return <EmployeeForm onSubmit={handleSubmit} />;
+  return (
+    <div>
+      <h2 className="text-xl font-semibold">Add Employee</h2>
+      <EmployeeForm onSubmit={handleSubmit} />
+    </div>
+  );
 };
 
 export default AddEmployee;
