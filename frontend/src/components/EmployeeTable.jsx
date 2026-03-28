@@ -8,11 +8,11 @@ const EmployeTable = ({ employees = [], onDelete, onView, onEdit }) => {
       <table className="w-full text-center table-fixed">
         <thead className="text-sm text-gray-500 border-b">
           <tr>
-            <th className="w-1/6 p-2">Name</th>
+            <th className="w-1/12 p-2">Name</th>
             <th className="w-1/12 p-2">ID</th>
-            <th className="w-1/6 p-2">Department</th>
-            <th className="w-1/6 p-2">Designation</th>
-            <th className="w-1/6 p-2">Project</th>
+            <th className="w-1/12 p-2">Department</th>
+            <th className="w-1/12 p-2">Designation</th>
+            <th className="w-1/12 p-2">Project</th>
             <th className="w-1/12 p-2">Type</th>
             <th className="w-1/12 p-2">Status</th>
             <th className="w-1/12 p-2">Action</th>
