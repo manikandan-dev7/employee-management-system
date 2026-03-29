@@ -164,6 +164,22 @@ These challenges helped in understanding **real-world debugging and problem-solv
 
 ---
 
+## 📷 Screenshot
+
+### Dashboard
+![Dashboard](./screenshots/homepage.png)
+
+### Edit Employee Page
+![Edit Employee](./screenshots/editpage.png)
+
+### View Employee Page
+![View Employee](./screenshots/viewpage.png)
+
+### Delete Employee Page
+![Delete Employee](./screenshots/deletepage.png)
+
+---
+
 ## 💡 Learnings
 
 * How frontend and backend communicate in real applications

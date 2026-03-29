@@ -17,11 +17,44 @@ const ViewEmployee = () => {
     <div className="p-6 bg-white rounded shadow">
       <h2 className="mb-4 text-lg font-bold">Employee Details</h2>
 
-      <p>Name: {data.name}</p>
-      <p>ID: {data.employeeId}</p>
-      <p>Department: {data.department}</p>
+      <p>
+        <strong>Name:</strong> {data.name}
+      </p>
+      <p>
+        <strong>Employee ID:</strong> {data.employeeId}
+      </p>
+      <p>
+        <strong>Department:</strong> {data.department}
+      </p>
+      <p>
+        <strong>Designation:</strong> {data.designation}
+      </p>
+      <p>
+        <strong>Project:</strong> {data.project}
+      </p>
+      <p>
+        <strong>Type:</strong> {data.type}
+      </p>
+      <p>
+        <strong>Status:</strong> {data.status}
+      </p>
+      {data.image && (
+        <div className="mt-4">
+          <strong>Image:</strong>
+          <div>
+            <img
+              src={data.image}
+              alt={`${data.name} profile`}
+              className="object-cover rounded w-28 h-28"
+            />
+          </div>
+        </div>
+      )}
 
-      <button onClick={() => navigate("/")} className="px-4 py-2 mt-4 text-white bg-blue-500 rounded">
+      <button
+        onClick={() => navigate("/")}
+        className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
+      >
         Back
       </button>
     </div>

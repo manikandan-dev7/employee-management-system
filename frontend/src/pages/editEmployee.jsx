@@ -13,8 +13,14 @@ const EditEmployee = () => {
   }, [id]);
 
   const handleSubmit = async (formData) => {
-    await updateEmployee(id, formData);
-    navigate("/");
+    try {
+      await updateEmployee(id, formData);
+      alert("Employee updated successfully!");
+      navigate("/");
+    } catch (error) {
+      console.error("Update failed:", error);
+      alert("Failed to update employee: " + (error.response?.data?.message || error.message));
+    }
   };
 
   return data ? (
