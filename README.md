@@ -106,7 +106,7 @@ employeeManagement-RS/
 ### 1. Clone Repository
 
 ```
-git clone <https://github.com/manikandan-dev7/employee-management-system.git>
+git clone https://github.com/manikandan-dev7/employee-management-system.git
 ```
 
 ---
